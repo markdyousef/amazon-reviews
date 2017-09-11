@@ -7,12 +7,7 @@ import MenuItem from 'material-ui/MenuItem';
 import DropdownMenu from 'material-ui/DropDownMenu';
 import RaisedButton from 'material-ui/RaisedButton';
 import { Toolbar, ToolbarGroup, ToolbarSeparator, ToolbarTitle } from 'material-ui/Toolbar';
-
-const more = () => (
-    <IconButton touch>
-        <NavigationExpandMoreIcon />
-    </IconButton>
-);
+import Drawer from '../Drawer';
 
 const menuItem = (value, text) => (
     <MenuItem key={value} value={value} primaryText={text}/>
@@ -24,21 +19,16 @@ export default class Nav extends Component {
         const { models, model } = this.props;
         return (
             <Toolbar>
-                <ToolbarGroup firstChild={true}>
+                <ToolbarGroup>
+                    <Drawer />
+                    <ToolbarSeparator />
                     <DropdownMenu value={model} onChange={this.handleChange}>
                         {models.map(value => menuItem(value, value.toUpperCase()))}
                     </DropdownMenu>
                 </ToolbarGroup>
-                <ToolbarGroup>
-                    <ToolbarTitle text="Options" />
-                    <FontIcon />
-                    <ToolbarSeparator />
+                {/* <ToolbarGroup>
                     <RaisedButton label="Create" primary />
-                    <IconMenu iconButtonElement={more()}>
-                        <MenuItem primaryText="Download" />
-                        <MenuItem primaryText="Download" /> 
-                    </IconMenu>
-                </ToolbarGroup>
+                </ToolbarGroup> */}
             </Toolbar>
         );
     }
