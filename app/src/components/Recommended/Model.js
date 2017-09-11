@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import { nnModel } from '../../keras';
 import dot from './../../models/dot';
 import dotMeta from '../../models/dot_metadata';
+import nn from './../../models/nn';
+import nnMeta from './../../models/nn_metadata';
 import Chip from 'material-ui/Chip';
 import Paper from 'material-ui/Paper';
 
@@ -66,7 +68,6 @@ const Field = styled.div`
 `;
 
 const renderLayer = (layer) => {
-    console.log(layer)
     const chipStyle = {
         backgroundColor: '#ddd'
     };
@@ -94,8 +95,10 @@ const renderLayer = (layer) => {
 }
 
 export default class Model extends Component {
-    renderModel = () => {
-        const { config: { layers }, class_name } = dot;
+    renderModel = (model) => {
+        console.log(model);
+        model = (model=='dot') ? dot : nn;
+        const { config: { layers }, class_name } = model;
 
         return (
             <ModelContainer>
@@ -105,10 +108,9 @@ export default class Model extends Component {
         
     }
     render() {
-
         return (
             <Container>
-                {this.renderModel()}
+                {this.renderModel(this.props.model)}
             </Container>
         );
     }
