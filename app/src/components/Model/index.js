@@ -55,7 +55,8 @@ const ChipInner = styled.div`
 
 const Info = styled.div`
     margin-left: 10px;
-    width: 100px;
+    // width: 100px;
+    display: flex;
 `;
 
 const Field = styled.div`
@@ -67,7 +68,11 @@ const Field = styled.div`
     }
 `;
 
-const renderLayer = (layer) => {
+const Meta = styled.div`
+    margin-left: 10px;
+`;
+
+const renderLayer = (layer, meta) => {
     const chipStyle = {
         backgroundColor: '#ddd'
     };
@@ -88,6 +93,12 @@ const renderLayer = (layer) => {
                 <Info>
                     {dtype&&<Field>Data Type <span>{dtype}</span></Field>}
                     {mode&&<Field>Mode Type <span>{mode}</span></Field>}
+                    {meta&&meta.map(data => (
+                        <Meta key={data.layer_name+data.length}>
+                            {data.length&&<Field>Length <span>{data.length}</span></Field>}
+                            {data.shape&&<Field>Shape <span>({data.shape.toString()})</span></Field>}
+                        </Meta>
+                    ))}
                 </Info>
             </Layer>
         </Paper>
@@ -96,13 +107,15 @@ const renderLayer = (layer) => {
 
 export default class Model extends Component {
     renderModel = (model) => {
-        console.log(model);
         model = (model=='dot') ? dot : nn;
+        const meta = (model=='dot') ? dotMeta : nnMeta;
+
         const { config: { layers }, class_name } = model;
 
         return (
             <ModelContainer>
-                {layers.map(layer => renderLayer(layer))}
+                {layers.map(layer => renderLayer(
+                    layer, meta.filter(obj => obj.layer_name == layer.name)))}
             </ModelContainer>
         )
         

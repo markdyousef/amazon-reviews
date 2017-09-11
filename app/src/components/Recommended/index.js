@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
-import Model from './Model';
+import Model from '../Model';
 import Toolbar from '../Toolbar';
 import { withState } from './Store';
+import Recommendations from './Recommendations';
 
 const Container = styled.section`
     width: 100%;
@@ -12,6 +13,10 @@ const Container = styled.section`
 
 const ToolbarContainer = styled.nav`
     margin: 0 0 10px;
+`;
+
+const Main = styled.section`
+    display: flex;
 `;
 
 const ModelContainer = styled.div`
@@ -31,9 +36,12 @@ export default withState(({...props}) => {
                     model={props.model}
                 />
             </ToolbarContainer>
-            <ModelContainer>
-                <Model model={props.model}/>
-            </ModelContainer>
+            <Main>
+                <ModelContainer>
+                    <Model model={props.model}/>
+                </ModelContainer>
+                <Recommendations />
+            </Main>
         </Container>
         )
 });
