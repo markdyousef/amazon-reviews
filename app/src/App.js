@@ -4,7 +4,7 @@ import Main from './components/Main';
 import Recommended from './components/Recommended'
 import Model from './components/Model';
 import Reviews from './components/Reviews';
-import {BrowserRouter, Route, Link} from 'react-router-dom';
+import {BrowserRouter, Route} from 'react-router-dom';
 
 const App = () => (
   <MuiThemeProvider>

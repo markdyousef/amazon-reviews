@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import {withState} from './Store';
 import {Card} from 'material-ui/Card'
 import StartBorder from 'material-ui/svg-icons/toggle/star-border';
+import Analysis from './ReviewAnalysis';
 
 const Container = styled.section`
     width: 100%;
@@ -81,6 +82,7 @@ const renderReviews = (reviews) => {
                     </Text>
                     <User>- {reviewerName}</User>
                 </Review>
+                <Analysis review={review} />
             </Card>);
     });
 }

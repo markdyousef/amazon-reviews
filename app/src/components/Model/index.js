@@ -107,8 +107,8 @@ const renderLayer = (layer, meta) => {
 
 export default class Model extends Component {
     renderModel = (model) => {
-        model = (model=='dot') ? dot : nn;
-        const meta = (model=='dot') ? dotMeta : nnMeta;
+        model = (model==='dot') ? dot : nn;
+        const meta = (model==='dot') ? dotMeta : nnMeta;
 
         const { config: { layers }, class_name } = model;
 

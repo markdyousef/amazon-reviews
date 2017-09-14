@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Model from '../Model';
 import Toolbar from '../Toolbar';
 import { withState } from './Store';
 

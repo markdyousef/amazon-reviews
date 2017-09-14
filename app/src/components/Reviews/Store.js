@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import reviewsData from '../../data/reviews_books_100';
+import analysisData from '../../data/reviews_books_analysis_100';
 
 export const withState = (WrappedComponent) => {
     return class extends Component {
@@ -10,7 +11,7 @@ export const withState = (WrappedComponent) => {
             }
         }
         componentWillMount(){
-            const reviews = reviewsData
+            const reviews = analysisData
             this.setState({ reviews })
         }
         changeModel = (model) => this.setState({ model })
