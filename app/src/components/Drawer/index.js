@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Drawer from 'material-ui/Drawer';
 import MenuItem from 'material-ui/MenuItem';
 import RaisedButton from 'material-ui/RaisedButton';
+import {Link} from 'react-router-dom'
 
 export default class SideNav extends Component {
     constructor(props){
@@ -22,12 +23,16 @@ export default class SideNav extends Component {
                     open={this.state.open}
                     onRequestChange={(open) => this.setState({ open })}
                 >
-                    <MenuItem onClick={this.handleClose}>
-                        Collaborative Filter
-                    </MenuItem>
-                    <MenuItem onClick={this.handleClose}>
-                        Sentiment Analysis
-                    </MenuItem>
+                    <Link to="/">
+                        <MenuItem onClick={this.handleClose}>
+                            Books
+                        </MenuItem>
+                    </Link>
+                    <Link to="/model">
+                        <MenuItem onClick={this.handleClose}>
+                            Models
+                        </MenuItem>
+                    </Link>
                     <MenuItem onClick={this.handleClose}>
                         Seq2Seq summaries
                     </MenuItem>
