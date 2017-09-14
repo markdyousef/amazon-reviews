@@ -1,9 +1,10 @@
 import React from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import Main from './components/Main';
 import Recommended from './components/Recommended'
 import Model from './components/Model';
+import Reviews from './components/Reviews';
 import {BrowserRouter, Route, Link} from 'react-router-dom';
-import Main from './components/Main';
 
 const App = () => (
   <MuiThemeProvider>
@@ -11,6 +12,7 @@ const App = () => (
       <Main>
         <Route exact path="/" component={Recommended}/>
         <Route path="/model" component={Model} />
+        <Route path="/reviews" component={Reviews} />
       </Main>
     </BrowserRouter>
   </MuiThemeProvider>

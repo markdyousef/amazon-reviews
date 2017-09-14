@@ -22,9 +22,9 @@ export default class Nav extends Component {
                 <ToolbarGroup>
                     <Drawer />
                     <ToolbarSeparator />
-                    <DropdownMenu value={model} onChange={this.handleChange}>
+                    {/* <DropdownMenu value={model} onChange={this.handleChange}>
                         {models.map(value => menuItem(value, value.toUpperCase()))}
-                    </DropdownMenu>
+                    </DropdownMenu> */}
                 </ToolbarGroup>
                 {/* <ToolbarGroup>
                     <RaisedButton label="Create" primary />

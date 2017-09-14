@@ -1,7 +1,5 @@
 import React from 'react';
 import {Card, CardHeader, CardText, CardMedia} from 'material-ui/Card'
-import IconButton from 'material-ui/IconButton';
-import StartBorder from 'material-ui/svg-icons/toggle/star-border';
 import styled from 'styled-components';
 
 const Container = styled.section`

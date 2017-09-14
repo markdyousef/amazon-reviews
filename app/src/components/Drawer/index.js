@@ -33,9 +33,11 @@ export default class SideNav extends Component {
                             Models
                         </MenuItem>
                     </Link>
-                    <MenuItem onClick={this.handleClose}>
-                        Seq2Seq summaries
-                    </MenuItem>
+                    <Link to="/reviews">
+                        <MenuItem onClick={this.handleClose}>
+                            Reviews
+                        </MenuItem>
+                    </Link>
                 </Drawer>
             </div>
         );
