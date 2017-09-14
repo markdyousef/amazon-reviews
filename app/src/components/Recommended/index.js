@@ -8,14 +8,18 @@ import Recommendations from './Recommendations';
 const Container = styled.section`
     width: 100%;
     height: 100%;
-    background-color: #ddd;
 `;
 
 const ToolbarContainer = styled.nav`
     margin: 0 0 10px;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+    width: 100%;
 `;
 
 const Main = styled.section`
+    padding-top: 60px;
     display: flex;
 `;
 
@@ -37,10 +41,10 @@ export default withState(({...props}) => {
                 />
             </ToolbarContainer>
             <Main>
-                <ModelContainer>
+                {/* <ModelContainer>
                     <Model model={props.model}/>
-                </ModelContainer>
-                <Recommendations />
+                </ModelContainer> */}
+                <Recommendations recommendations={props.recommendations}/>
             </Main>
         </Container>
         )

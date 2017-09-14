@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { nnModel } from '../../keras';
+// import { nnModel } from '../../keras';
 import dot from './../../models/dot';
 import dotMeta from '../../models/dot_metadata';
 import nn from './../../models/nn';
